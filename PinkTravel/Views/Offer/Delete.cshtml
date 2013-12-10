@@ -1,0 +1,40 @@
+﻿@model PinkTravel.Models.Offer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Offer</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HotelName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HotelName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LocationName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocationName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AddedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddedDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

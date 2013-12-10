@@ -1,0 +1,59 @@
+﻿@model PinkTravel.Models.Offer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Offer</legend>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.HotelName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HotelName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.LocationName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LocationName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.AddedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddedDate)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.AddedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddedDate)
+    </div>
+    @if (Model.HotelImage != null)
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.HotelName)
+        </div>
+        <div class="display-field">
+            <img src="@Url.Action("Image", "PImages", new { name = Model.HotelImage.FullImageName })/"/>
+        </div>
+    }
+    @if (Model.LocationImage != null)
+    {
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.LocationName)
+        </div>
+        <div class="display-field">
+            <img src = "@Url.Action("Image", "PImages", new { name = Model.LocationImage.FullImageName })/"/>
+        </div>
+    }
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OfferId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

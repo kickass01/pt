@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+@using System.Threading
+@using ClientDependency.Core.Mvc
+@using PinkTravel.Localization
+
+<html lang="en">
+    <head>
+        @{
+            Html.RequiresCss("~/Content/Site.css");
+			Html.RequiresJsFolder("~/Scripts/jquery", 1, "Scripts");
+			Html.RequiresJs("~/Scripts/language.js", 9, "Scripts");
+			Html.RequiresCss("~/Content/bootstrap.css");
+        }
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Html.RenderJsHere()
+        @Html.RenderCssHere()
+    </head>
+	<body>
+		<h1>This is the master page.. </h1>
+		<div>
+			@Html.LanguageSelectorLink("en", "English", "eng", new Dictionary<string, object>())
+			@Html.LanguageSelectorLink("ro", "Romana", "rom", new Dictionary<string, object>())
+		</div>
+		<header>
+			<div class="content-wrapper">
+				<div class="float-left">
+					<p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+				</div>
+				<div class="float-right">
+					<section id="login">
+						@Html.Partial("_LoginPartial")
+					</section>
+					<nav>
+						<ul id="menu">
+							<li>@Html.ActionLink("Home", "Index", "Home")</li>
+							<li>@Html.ActionLink("About", "About", "Home")</li>
+							<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+							<li>@Html.ActionLink("Offer", "Index", "Offer")</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<div id="body">
+			@RenderSection("featured", required: false)
+			<section class="content-wrapper main-content clear-fix">
+				<h3>start</h3>
+				@RenderBody()
+				<h3>end</h3>
+			</section>
+		</div>
+		<footer>
+			<div class="content-wrapper">
+				<div class="float-left">
+					<p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
