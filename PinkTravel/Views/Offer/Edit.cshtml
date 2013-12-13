@@ -1,44 +1,44 @@
 ﻿@using ClientDependency.Core.Mvc
+@using PinkTravel.Helper
 @model PinkTravel.Models.Offer
 
 @{
     ViewBag.Title = "Edit";
-    Html.RequiresJsBundle("~/Scripts/scripts/jquery");
-    Html.RequiresJsBundle("~/Scripts/scripts/jqueryval");
+    Html.RequiresJsFolder("~/Scripts/jquery");
+    Html.RequiresJs("~/Scripts/jqueryval/jquery.validate.min.js");
+    Html.RequiresJs("~/Scripts/jqueryval/jquery.validate.unobtrusive.min.js");
+    Html.RequiresJs("~/Scripts/ajax/jquery.unobtrusive-ajax.min.js");
 }
 <h2>Edit</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
+    
     <fieldset>
         <legend>Offer</legend>
-
-        @Html.HiddenFor(model => model.OfferId)
-
+        @Html.HiddenFor(model => model.HotelImageId)
+        @Html.HiddenFor(model => model.LocationImageId)
         <div class="editor-label">
             @Html.LabelFor(model => model.HotelName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.HotelName)
+            @Html.ValidatedTextBoxFor(model => model.HotelName)
             @Html.ValidationMessageFor(model => model.HotelName)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.LocationName)
+            @Html.LabelFor(model => model.Location)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.LocationName)
-            @Html.ValidationMessageFor(model => model.LocationName)
+            @Html.ValidatedTextBoxFor(model => model.Location)
+            @Html.ValidationMessageFor(model => model.Location)
         </div>
-        
+
         @Html.LabelFor(model => model.HotelImage)
-        @Html.EditorFor(model => model.HotelImage, new { offerId = Model.OfferId, imageRatio = 16/9, minWidth = 700 })
+        @Html.EditorFor(model => model.HotelImage, new { offerId = Model.OfferId, imageRatio = "16/9", minWidth = 700 })
 
         @Html.LabelFor(model => model.LocationImage)
-        @Html.EditorFor(model => model.LocationImage, new { offerId = Model.OfferId, imageRatio = 16/9, minWidth = 700 })
+        @Html.EditorFor(model => model.LocationImage, new { offerId = Model.OfferId, imageRatio = "16/9", minWidth = 700 })
         <p>
             <input type="submit" value="Save" />
         </p>

@@ -13,7 +13,7 @@ namespace PinkTravel.Models
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public int Id { get; set; }
 
-		[Required(ErrorMessage = "Select an image")]
+		[Required(ErrorMessageResourceType = typeof (ResourcesPt.PinkTravel), ErrorMessageResourceName = "ImageModel_FullImageName_Select_an_image")]
 		public string FullImageName { get; set; }
 
 		public string CroppedImageName { get; set; }

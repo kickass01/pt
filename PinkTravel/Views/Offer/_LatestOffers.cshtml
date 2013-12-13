@@ -1,0 +1,28 @@
+﻿@using ClientDependency.Core.Mvc
+
+@{
+    Html.RequiresJs("~/Scripts/jquery/jquery-2.0.3.js");
+}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btn").click(function() {
+            $.ajax({
+                url: '@Url.Action("LatestOffers")',
+                complete: completed
+            });
+        });
+
+        function completed(offers) {
+            var json = $.parseJSON(offers.responseJSON);
+            for (var i = 0; i < json.length; i++) {
+                var span = $('<span>').text(json[i].HotelName).append($('<br />'));
+                span.appendTo($("#div"));
+            }
+        }
+    });
+</script>
+<div id="div">
+    
+</div>
+<button id="btn">GO</button>

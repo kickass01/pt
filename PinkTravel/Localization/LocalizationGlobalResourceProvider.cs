@@ -16,7 +16,7 @@ namespace PinkTravel.Localization
         public LocalizationGlobalResourceProvider()
         {
             //_resourceManager = new ResourceManager("PinkTravel", Assembly.GetAssembly(this.GetType()));
-            _resourceManager = Resources.PinkTravel.ResourceManager;
+            _resourceManager = ResourcesPt.PinkTravel.ResourceManager;
         }
 
         protected override string OnGetString(string cultureName, string key)

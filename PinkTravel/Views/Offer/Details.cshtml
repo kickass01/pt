@@ -16,10 +16,10 @@
     </div>
 
     <div class="display-label">
-        @Html.DisplayNameFor(model => model.LocationName)
+        @Html.DisplayNameFor(model => model.Location)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.LocationName)
+        @Html.DisplayFor(model => model.Location)
     </div>
 
     <div class="display-label">
@@ -46,7 +46,7 @@
     @if (Model.LocationImage != null)
     {
         <div class="display-label">
-            @Html.DisplayNameFor(model => model.LocationName)
+            @Html.DisplayNameFor(model => model.Location)
         </div>
         <div class="display-field">
             <img src = "@Url.Action("Image", "PImages", new { name = Model.LocationImage.FullImageName })/"/>

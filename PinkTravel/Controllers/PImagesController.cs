@@ -111,7 +111,7 @@ namespace PinkTravel.Controllers
 
 		private static byte[] GetCroppedImage(ImageModel model, HttpPostedFileBase file, ImageFormat imageFormat)
 		{
-			if (model.CropX1 > 0 && model.CropX2 > 0 && model.CropY1 > 0 && model.CropY2 > 0)
+			if (Math.Abs(model.CropX1 - model.CropX2) > 0 && Math.Abs(model.CropY1 - model.CropY2) > 0)
 			{
 				int width = Math.Abs(model.CropX2 - model.CropX1);
 				int height = Math.Abs(model.CropY2 - model.CropY1);

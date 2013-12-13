@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Resources {
+namespace ResourcesPt {
     using System;
     
     
@@ -66,6 +66,312 @@ namespace Resources {
         public static string asdds {
             get {
                 return ResourceManager.GetString("asdds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an image.
+        /// </summary>
+        public static string ImageModel_FullImageName_Select_an_image {
+            get {
+                return ResourceManager.GetString("ImageModel_FullImageName_Select_an_image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country.
+        /// </summary>
+        public static string Offer_Country_Country {
+            get {
+                return ResourceManager.GetString("Offer_Country_Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country must be specified.
+        /// </summary>
+        public static string Offer_Country_Country_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_Country_Country_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date must be specified.
+        /// </summary>
+        public static string Offer_EndDate_End_date_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_EndDate_End_date_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From date.
+        /// </summary>
+        public static string Offer_FromDate_From_date {
+            get {
+                return ResourceManager.GetString("Offer_FromDate_From_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From date must be specified.
+        /// </summary>
+        public static string Offer_FromDate_From_date_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_FromDate_From_date_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel description.
+        /// </summary>
+        public static string Offer_HotelDescription_Hotel_description {
+            get {
+                return ResourceManager.GetString("Offer_HotelDescription_Hotel_description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel description is required..
+        /// </summary>
+        public static string Offer_HotelDescription_Hotel_description_is_required_ {
+            get {
+                return ResourceManager.GetString("Offer_HotelDescription_Hotel_description_is_required_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel image.
+        /// </summary>
+        public static string Offer_HotelImage_Hotel_image {
+            get {
+                return ResourceManager.GetString("Offer_HotelImage_Hotel_image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel name.
+        /// </summary>
+        public static string Offer_HotelName_Hotel_name {
+            get {
+                return ResourceManager.GetString("Offer_HotelName_Hotel_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel name is required.
+        /// </summary>
+        public static string Offer_HotelName_Hotel_name_is_required {
+            get {
+                return ResourceManager.GetString("Offer_HotelName_Hotel_name_is_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} must be between {1} and {5} stars..
+        /// </summary>
+        public static string Offer_HotelStars__0__must_be_between__1__and__5__stars_ {
+            get {
+                return ResourceManager.GetString("Offer_HotelStars__0__must_be_between__1__and__5__stars_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HotelStars.
+        /// </summary>
+        public static string Offer_HotelStars_HotelStars {
+            get {
+                return ResourceManager.GetString("Offer_HotelStars_HotelStars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select number of stars.
+        /// </summary>
+        public static string Offer_HotelStars_Select_number_of_stars {
+            get {
+                return ResourceManager.GetString("Offer_HotelStars_Select_number_of_stars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel web site.
+        /// </summary>
+        public static string Offer_HotelWebSite_Hotel_web_site {
+            get {
+                return ResourceManager.GetString("Offer_HotelWebSite_Hotel_web_site", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotel website is required..
+        /// </summary>
+        public static string Offer_HotelWebSite_Hotel_website_is_required_ {
+            get {
+                return ResourceManager.GetString("Offer_HotelWebSite_Hotel_website_is_required_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location image.
+        /// </summary>
+        public static string Offer_LocationImage_Location_image {
+            get {
+                return ResourceManager.GetString("Offer_LocationImage_Location_image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location name is required.
+        /// </summary>
+        public static string Offer_LocationName_Location_name_is_required {
+            get {
+                return ResourceManager.GetString("Offer_LocationName_Location_name_is_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string Offer_LocationName_Offer_LocationName_Location {
+            get {
+                return ResourceManager.GetString("Offer_LocationName_Offer_LocationName_Location", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meail details must be specified.
+        /// </summary>
+        public static string Offer_MealDetails_Meail_details_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_MealDetails_Meail_details_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meal details.
+        /// </summary>
+        public static string Offer_MealDetails_Meal_details {
+            get {
+                return ResourceManager.GetString("Offer_MealDetails_Meal_details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not included.
+        /// </summary>
+        public static string Offer_NotIncludedInOffer_Not_included {
+            get {
+                return ResourceManager.GetString("Offer_NotIncludedInOffer_Not_included", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string Offer_NumberOfNights_Duration {
+            get {
+                return ResourceManager.GetString("Offer_NumberOfNights_Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observations.
+        /// </summary>
+        public static string Offer_Observations_Observations {
+            get {
+                return ResourceManager.GetString("Offer_Observations_Observations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Observations must be specified.
+        /// </summary>
+        public static string Offer_Observations_Observations_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_Observations_Observations_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price from.
+        /// </summary>
+        public static string Offer_PriceFrom_Price_from {
+            get {
+                return ResourceManager.GetString("Offer_PriceFrom_Price_from", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting price is required.
+        /// </summary>
+        public static string Offer_PriceFrom_Starting_price_is_required {
+            get {
+                return ResourceManager.GetString("Offer_PriceFrom_Starting_price_is_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room details.
+        /// </summary>
+        public static string Offer_RoomDetails_Room_details {
+            get {
+                return ResourceManager.GetString("Offer_RoomDetails_Room_details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Room details must be specified.
+        /// </summary>
+        public static string Offer_RoomDetails_Room_details_must_be_specified {
+            get {
+                return ResourceManager.GetString("Offer_RoomDetails_Room_details_must_be_specified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Until date.
+        /// </summary>
+        public static string Offer_ToDate_Until_date {
+            get {
+                return ResourceManager.GetString("Offer_ToDate_Until_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer details.
+        /// </summary>
+        public static string Offer_TransferDetails_Transfer_details {
+            get {
+                return ResourceManager.GetString("Offer_TransferDetails_Transfer_details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer details are required.
+        /// </summary>
+        public static string Offer_TransferDetails_Transfer_details_are_required {
+            get {
+                return ResourceManager.GetString("Offer_TransferDetails_Transfer_details_are_required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transport details.
+        /// </summary>
+        public static string Offer_Transport_Transport_details {
+            get {
+                return ResourceManager.GetString("Offer_Transport_Transport_details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transport details are required..
+        /// </summary>
+        public static string Offer_Transport_Transport_details_are_required_ {
+            get {
+                return ResourceManager.GetString("Offer_Transport_Transport_details_are_required_", resourceCulture);
             }
         }
         

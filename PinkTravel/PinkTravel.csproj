@@ -39,7 +39,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClientDependency.Core.Mvc">
+    <Reference Include="ClientDependency.Core">
+      <HintPath>..\packages\ClientDependency.1.7.0.4\lib\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\ClientDependency-Mvc.1.7.0.4\lib\ClientDependency.Core.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
@@ -219,10 +223,20 @@
     <Compile Include="Helper\AuthorizeAdminOnlyAttribute.cs" />
     <Compile Include="Helper\Constants.cs" />
     <Compile Include="Helper\FilesStatus.cs" />
+    <Compile Include="Helper\HtmlExtensions.cs" />
+    <Compile Include="Helper\LocalizedDisplayNameAttribute.cs" />
     <Compile Include="Localization\LocalizationGlobalResourceProvider.cs" />
     <Compile Include="Migrations\201312101940175_Initial.cs" />
     <Compile Include="Migrations\201312101940175_Initial.Designer.cs">
       <DependentUpon>201312101940175_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312120807118_Update1.cs" />
+    <Compile Include="Migrations\201312120807118_Update1.Designer.cs">
+      <DependentUpon>201312120807118_Update1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201312121506355_UpdatedOffer.cs" />
+    <Compile Include="Migrations\201312121506355_UpdatedOffer.Designer.cs">
+      <DependentUpon>201312121506355_UpdatedOffer.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\ImageModel.cs" />
@@ -240,6 +254,7 @@
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\jcrop\Jcrop.gif" />
     <Content Include="Content\jcrop\jquery.Jcrop.min.css" />
+    <Content Include="Content\Offer.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -325,21 +340,19 @@
     <Content Include="Scripts\file-upload\jquery.fileupload-validate.js" />
     <Content Include="Scripts\file-upload\jquery.fileupload.js" />
     <Content Include="Scripts\file-upload\jquery.iframe-transport.js" />
-    <Content Include="Scripts\imagemodel.js" />
-    <Content Include="Scripts\jquery.color.js" />
-    <Content Include="Scripts\jquery.Jcrop.min.js" />
-    <Content Include="Scripts\jquery\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\jquery-ui\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\offer\imagemodel.js" />
+    <Content Include="Scripts\file-upload\jquery.color.js" />
+    <Content Include="Scripts\file-upload\jquery.Jcrop.min.js" />
     <Content Include="Scripts\jquery-ui\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery\jquery.cookies.js" />
-    <Content Include="Scripts\jqueryval\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jqueryval\jquery.unobtrusive-ajax.min.js" />
-    <None Include="Scripts\jqueryval\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jqueryval\jquery.validate.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jqueryval\jquery.validate.min.js" />
     <Content Include="Scripts\jqueryval\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jqueryval\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\language.js" />
+    <Content Include="Scripts\sammy-0.7.4.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -387,6 +400,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ImageModel.cshtml" />
+    <Content Include="Views\Offer\_OfferPreview.cshtml" />
+    <Content Include="Views\Offer\_LatestOffers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,15 +413,21 @@
     <EmbeddedResource Include="App_GlobalResources\PinkTravel.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PinkTravel.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <CustomToolNamespace>ResourcesPt</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="App_GlobalResources\PinkTravel.ro.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PinkTravel.ro.designer.cs</LastGenOutput>
-      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <CustomToolNamespace>ResourcesPt</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201312101940175_Initial.resx">
       <DependentUpon>201312101940175_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312120807118_Update1.resx">
+      <DependentUpon>201312120807118_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201312121506355_UpdatedOffer.resx">
+      <DependentUpon>201312121506355_UpdatedOffer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,23 @@
+﻿@using System.Web.Script.Serialization
+@using ClientDependency.Core.Mvc
+@model PinkTravel.Models.Offer
+
+<div class="offer-preview">
+    <div class="location-preview" style="background-image: url(@Url.Action("Image", "PImages", new { offer = Model.OfferId, name = Model.LocationImage.CroppedImageName }))">
+        @Html.LabelFor(model => model.HotelName)
+        @Html.DisplayFor(model => model.HotelName)
+        @Html.LabelFor(model => model.HotelStars)
+        @Html.DisplayFor(model => model.HotelStars)
+        @Html.LabelFor(model => model.Country)
+        @Html.DisplayFor(model => model.Country)
+        @Html.LabelFor(model => model.FromDate)
+        @Html.DisplayFor(model => model.FromDate)
+        @Html.LabelFor(model => model.NumberOfNights)
+        @Html.DisplayFor(model => model.NumberOfNights)
+        @Html.LabelFor(model => model.MealDetails)
+        @Html.DisplayFor(model => model.MealDetails)
+        @Html.LabelFor(model => model.PriceFrom)
+        @Html.DisplayFor(model => model.PriceFrom)
+        @Html.ActionLink("Offer details", "Details", new { id = Model.OfferId})
+    </div>
+</div>

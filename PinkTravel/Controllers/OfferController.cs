@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Data;
+using System.Data.Entity.Infrastructure;
+using System.EnterpriseServices;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Web.UI.WebControls;
+using Newtonsoft.Json;
 using PinkTravel.Helper;
 using PinkTravel.Models;
 
@@ -20,7 +25,6 @@ namespace PinkTravel.Controllers
 
 		//
 		// GET: /Offer/Details/5
-
 		public ActionResult Details(int id = 0)
 		{
 			Offer offer = db.Offers.Find(id);
@@ -31,6 +35,15 @@ namespace PinkTravel.Controllers
 
 			return View(offer);
 		}
+
+        
+        [HttpGet]
+	    public ActionResult LatestOffers()
+        {
+            var js = new JavaScriptSerializer();
+            var offers = db.Offers.OrderByDescending(o => o.AddedDate).Take(3).ToArray();
+            return Json(js.Serialize(offers), JsonRequestBehavior.AllowGet);
+        }
 
 		//
 		// GET: /Offer/Create
@@ -86,7 +99,12 @@ namespace PinkTravel.Controllers
 		{
 			if (ModelState.IsValid)
 			{
+                //var existing = db.Images.Find(offer.HotelImage.Id);
+                //((IObjectContextAdapter)db).ObjectContext.Detach(existing);
+                //existing = db.Images.Find(offer.LocationImage.Id);
+                //((IObjectContextAdapter)db).ObjectContext.Detach(existing);
 				db.Entry(offer).State = EntityState.Modified;
+			    offer.AddedDate = DateTime.Now.Date;
 				db.SaveChanges();
 
 				SaveOfferImagesToDisk(offer);
@@ -160,7 +178,7 @@ namespace PinkTravel.Controllers
 
 			var content = Session[fileName] as byte[];
 			if (content == null)
-				throw new ArgumentOutOfRangeException("fileName", Resources.PinkTravel.OfferController_SaveFileFromSessionToDisk_Invalid_filename_or_session_expired);
+				throw new ArgumentOutOfRangeException("fileName", ResourcesPt.PinkTravel.OfferController_SaveFileFromSessionToDisk_Invalid_filename_or_session_expired);
 
 			string directorypath = Server.MapPath(Constants.ImagesBaseFolder) + offerId + "/";
 			Directory.CreateDirectory(directorypath);

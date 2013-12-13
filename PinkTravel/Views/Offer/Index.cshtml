@@ -1,120 +1,45 @@
-﻿@model PinkTravel.Models.ImageModel
-@using ClientDependency.Core.Mvc
+﻿@model IEnumerable<PinkTravel.Models.Offer>
+
 @{
-	Html.RequiresJsFolder("~/Scripts/jquery").RequiresJsFolder("~/Scripts/jquery-ui");
-	Html.RequiresJs("~/Scripts/file-upload/jquery.fileupload.js").RequiresJs("~/Scripts/file-upload/jquery.fileupload-process.js");
-	Html.RequiresJsFolder("~/Scripts/file-upload").RequiresJs("~/Scripts/jquery.jcrop.min.js");
-	Html.RequiresCss("~/Content/jcrop/jquery.jcrop.min.css");
-	Html.RequiresJs("~/Scripts/imagemodel.js");
+    ViewBag.Title = "Index";
 }
-<style>
-	.jcrop-holder {
-		display: none;
-	}
-</style>
-<script type="text/javascript">
-	 @{
-			<text>
-	$(document).ready(function () {
-		var cropInputId = "#" + "@ViewData.TemplateInfo.GetFullHtmlFieldId("crop")";
-		var imageUploadId = "#" + "@ViewData.TemplateInfo.GetFullHtmlFieldId("imageUpload")";
-		var imagePreviewId = "#" + "@ViewData.TemplateInfo.GetFullHtmlFieldId("imagePreview")";
-		var uploadButtonId = "#" + "@ViewData.TemplateInfo.GetFullHtmlFieldId("uploadButton")";
-		var jcrop_api = undefined;
 
-		var postFormSettings = {
-			CropX1: $("#@Html.IdFor(model => model.CropX1)").val(),
-			CropX2: $("#@Html.IdFor(model => model.CropX2)").val(),
-			CropY1: $("#@Html.IdFor(model => model.CropY1)").val(),
-			CropY2: $("#@Html.IdFor(model => model.CropY2)").val(),
-			FileName: ""
-		};
+<h2>Index</h2>
 
-		var imageSetting = {
-			ratio: parseFloat(@ViewData["imageRatio"]),
-			width: parseInt(@ViewData["minWidth"]),
-			x1Id: "#@Html.IdFor(model => model.CropX1)",
-			x2Id: "#@Html.IdFor(model => model.CropX2)",
-			y1Id: "#@Html.IdFor(model => model.CropY1)",
-			y2Id: "#@Html.IdFor(model => model.CropY2)"
-		};
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HotelName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddedDate)
+        </th>
+        <th></th>
+    </tr>
 
-		var buttonSettings = {
-			processingText: "Processing",
-			uploadText: "Upload",
-			abortText: "Abort",
-			formData: postFormSettings
-		};
-
-		var imageUploadDetails = {
-			url: "@Url.Action("UploadImage", "PImages")",
-			uploadButton: getUploadButton(buttonSettings),
-			doneCallBack: imageUploaded,
-			progressId: "#@ViewData.TemplateInfo.GetFullHtmlFieldId("progress")",
-		   	failedCallBack: function () { alert('fail'); }
-		};
-
-		function imageUploaded(files) {
-			"use strict";
-			$(uploadButtonId).fadeOut(600);
-			$(imageUploadId).animate({
-				opacity: 0,
-				height: 0
-			}, 1000);
-			$(jcrop_api.ui.holder).animate({
-				opacity: 0,
-				height: 0
-			}, 1000);
-			setTimeout(function () {
-				jcrop_api.destroy();
-				$(imagePreviewId).hide();
-			}, "1000");
-
-			$("#@Html.IdFor(model => model.ContentType)").val(files[0].type);
-			$("#@Html.IdFor(model => model.FullImageSize)").val(files[0].size);
-			$("#@Html.IdFor(model => model.FullImageName)").val(files[0].name);
-			$("#@Html.IdFor(model => model.CroppedImageName)").val(files[0].cropped_image_name);
-			$("#@Html.IdFor(model => model.CroppedImageSize)").val(files[0].cropped_image_size);
-		}
-
-		setupImageUpload(imageUploadId, imageUploadDetails);
-
-		$(imageUploadId).change(function () {
-			$("#@Html.IdFor(model => model.FullImageName)").val($(imageUploadId).val())
-			readUrl(this, imagePreviewId);
-		});
-
-		$(imagePreviewId).load(function () { jcrop_api = setJCrop(this, imageSetting, jcrop_api); });
-
-		$(".btn-primary").on('click', function () { return false; });
-	});
-	</text>
-	}
-</script>
-<div class="imageModel" id="@ViewData.TemplateInfo.GetFullHtmlFieldId("container")" style="width: 600px">
-	@Html.HiddenFor(model => model.CropX2)
-	@Html.HiddenFor(model => model.CropX1)
-	@Html.HiddenFor(model => model.CropY1)
-	@Html.HiddenFor(model => model.CropY2)
-	@Html.HiddenFor(model => model.FullImageName)
-	@Html.HiddenFor(model => model.FullImageSize)
-	@Html.HiddenFor(model => model.CroppedImageName)
-	@Html.HiddenFor(model => model.CroppedImageSize)
-	@Html.HiddenFor(model => model.ContentType)
-	@Html.ValidationMessageFor(model => model.FullImageName)
-
-	<input type="file" name="@ViewData.TemplateInfo.GetFullHtmlFieldName("imageUpload")" id="@ViewData.TemplateInfo.GetFullHtmlFieldId("imageUpload")" />
-	@if (Model != null && !string.IsNullOrEmpty(Model.FullImageName) && ViewData["offerId"] != null && ((int)ViewData["offerId"] > 0))
-	{
-		<img id="@ViewData.TemplateInfo.GetFullHtmlFieldId("imagePreview")" style="" src="@Url.Action("Image", "PImages", new { name = Model.FullImageName, offer = ViewData["offerId"] })" />
-	}
-	else
-	{
-		<img id="@ViewData.TemplateInfo.GetFullHtmlFieldId("imagePreview")" style="display: none; width: 0; height: 0" />
-	}
-
-	<div id="@ViewData.TemplateInfo.GetFullHtmlFieldId("progress")" class="progress" style="width: 300px">
-		<div class="progress-bar progress-bar-success"></div>
-	</div>
-</div>
-
+@foreach (var item in Model) {
+    @*<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HotelName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OfferId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OfferId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OfferId })
+        </td>
+    </tr>*@
+    Html.RenderPartial("_OfferPreview", item);
+}
+</table>
